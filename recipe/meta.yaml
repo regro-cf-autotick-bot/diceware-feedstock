@@ -1,20 +1,20 @@
 {% set name = "diceware" %}
-{% set version = "0.9.6" %}
+{% set version = "0.10" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 7ef924ca05ece8eaa5e2746246ab94600b831f1428c70d231790fee5b5078b4e
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b2b4cc9b59f568d2ef51bfdf9f7e1af941d25fb8f5c25f170191dbbabce96569
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - diceware = diceware:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -40,7 +40,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL3
   license_file: LICENSE
-  summary: "Passphrases you will remember."
+  summary: Passphrases you will remember.
   doc_url: https://diceware.readthedocs.io/en/stable/
   dev_url: https://github.com/ulif/diceware
 
